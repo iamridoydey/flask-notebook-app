@@ -54,6 +54,16 @@ def add_note():
         conn.execute(text("INSERT INTO notes (note) VALUES (:note)"), {"note": note})
     return jsonify({"note": note}), 201
 
+
+@app.route("/notes/<int:note_id>", methods=["DELETE"])
+def delete_note(note_id):
+    with engine.begin() as conn:
+        result = conn.execute(text("DELETE FROM notes WHERE id = :id"), {"id": note_id})
+        if result.rowcount == 0:
+            return jsonify({"error": "note not found"}), 404
+    return jsonify({"message": f"Note {note_id} deleted"}), 200
+
+
 if __name__ == "__main__":
     init_db()
     app.run(host="0.0.0.0", port=5000, debug=True)
