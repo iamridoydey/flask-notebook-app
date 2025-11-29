@@ -1,8 +1,8 @@
 import os
 
 class Config:
-    MYSQL_HOST = "127.0.0.1"
-    MYSQL_PORT = 3306
-    MYSQL_USER = "flaskuser"
-    MYSQL_PASSWORD = "flaskpass"
-    MYSQL_DB = "notebookdb"
+    MYSQL_HOST = os.getenv("MYSQL_HOST", "localhost")
+    MYSQL_PORT = int(os.getenv("MYSQL_PORT", "3306"))
+    MYSQL_USER = os.getenv("MYSQL_USER", "flaskuser")
+    MYSQL_PASSWORD = os.getenv("MYSQL_PASSWORD","flaskpass")
+    MYSQL_DB = os.getenv("MYSQL_DB","notebookdb")
