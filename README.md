@@ -38,3 +38,19 @@ It allows users to create, toggle (mark completed), and delete notes, with persi
 ```bash
 git clone https://github.com/yourusername/flask-notebook-app.git
 cd flask-notebook-app
+```
+
+## 🐳 Running the Application with Docker & Docker Compose
+
+This repository is fully containerized. All services (backend, frontend, and database) are defined in `docker-compose.yml`.
+
+### Start the application
+```bash
+docker compose up --build
+```
+
+### 🐳 Remove the container
+
+```bash
+docker compose down
+```
