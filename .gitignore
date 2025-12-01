@@ -1,0 +1,41 @@
+# --- Python / Flask backend ---
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# --- Node / React frontend ---
+node_modules/
+dist/
+build/
+.cache/
+*.log
+
+# --- Environment files (backend + frontend) ---
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# --- Database ---
+mysql_data/
+*.sql
+
+# --- Docker ---
+docker-compose.override.yml
+.docker/
+tmp/
+
+# --- OS / Editor junk ---
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/

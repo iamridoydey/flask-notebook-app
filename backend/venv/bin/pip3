@@ -1,4 +1,4 @@
-#!/home/iamridoydey/DEVOPS/PROJECTS/TWO_TIER_APP/flask-notebook-app/backend/venv/bin/python3
+#!/home/simanto/DEVOPS/TWO-TEIR-APP/flask-notebook-app/backend/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
