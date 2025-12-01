@@ -53,7 +53,7 @@ pipeline {
 
         stage('Frontend Build (React vite)') {
             tools {
-                nodejs "nodejs-22"
+                nodejs "nodejs-24"
             }
             steps {
                 dir('frontend'){
