@@ -68,9 +68,6 @@ pipeline {
         }
 
         stage('Docker build images'){
-            tools {
-                docker "docker-daemon"
-            }
             steps {
                 sh'''
                     docker --version
