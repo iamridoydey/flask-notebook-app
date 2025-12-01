@@ -37,9 +37,6 @@ pipeline {
                     python3 -m venv venv
                     . venv/bin/activate
 
-                    # Upgrade pip inside venv
-                    venv/bin/python -m pip install --upgrade pip
-
                     # Install project dependencies
                     venv/bin/python -m pip install -r requirements.txt
 
