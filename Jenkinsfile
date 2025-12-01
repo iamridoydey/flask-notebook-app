@@ -32,7 +32,10 @@ pipeline {
                 dir('backend'){
                     sh'''
                     python3 --version
-
+                    
+                    # Remove any previous venv to avoid corruption
+                    rm -rf venv
+                    
                     # Create virtual environment for this build
                     python3 -m venv venv
                     . venv/bin/activate
