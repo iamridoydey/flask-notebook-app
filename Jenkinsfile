@@ -52,6 +52,12 @@ pipeline {
 
 
         stage('Frontend Build (React vite)') {
+            agent {
+                docker {
+                    image 'node:22' 
+                    args '-u root:root'
+                }
+            }
             steps {
                 dir('frontend'){
                     sh'''
