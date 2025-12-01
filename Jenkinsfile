@@ -23,7 +23,7 @@ pipeline {
             steps {
                 git branch: env.GIT_BRANCH,
                     url: 'https://github.com/iamridoydey/flask-notebook-app.git',
-                    credentialsId: 'flask-notebook-app-id'
+                    credentialsId: 'github_creds'
             }
         }
 
@@ -53,7 +53,7 @@ pipeline {
 
         stage('Frontend Build (React vite)') {
             tools {
-                nodejs "nodejs-24"
+                nodejs "nodejs-22"
             }
             steps {
                 dir('frontend'){
@@ -68,10 +68,12 @@ pipeline {
         }
 
         stage('Docker build images'){
+            tools {
+                docker "docker-daemon"
+            }
             steps {
                 sh'''
                     docker --version
-                    docker compose version
 
                     # Build the image
                     docker build -t ${BACKEND_IMAGE}:$BUILD_NUMBER ./backend
