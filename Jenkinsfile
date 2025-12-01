@@ -38,10 +38,10 @@ pipeline {
                     . venv/bin/activate
 
                     # Upgrade pip inside venv
-                    venv/bin/pip install --upgrade pip
+                    venv/bin/python -m pip install --upgrade pip
 
                     # Install project dependencies
-                    venv/bin/pip install -r requirements.txt
+                    venv/bin/python -m pip install -r requirements.txt
 
                     # Run a qucik syntax check
                     python -m py_compile app.py
