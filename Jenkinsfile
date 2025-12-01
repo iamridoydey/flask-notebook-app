@@ -35,7 +35,7 @@ pipeline {
                     
                     # Remove any previous venv to avoid corruption
                     rm -rf venv
-                    
+
                     # Create virtual environment for this build
                     python3 -m venv venv
                     . venv/bin/activate
@@ -52,11 +52,8 @@ pipeline {
 
 
         stage('Frontend Build (React vite)') {
-            agent {
-                docker {
-                    image 'node:22' 
-                    args '-u root:root'
-                }
+            tools {
+                nodejs "nodejs-22"
             }
             steps {
                 dir('frontend'){
