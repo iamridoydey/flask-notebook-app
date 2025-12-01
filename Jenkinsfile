@@ -5,9 +5,6 @@ pipeline {
         // Adds a timestamp to every line in the Jenkins console.log
         timestamps()
 
-        // Enables colored output in Jenkins console
-        ansiColor("xterm")
-
         // Jenkins will keep only last 20 builds and discareded older ones
         buildDiscarder(logRotator(numToKeepStr: '20'))
     }
