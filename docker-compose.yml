@@ -12,6 +12,7 @@ services:
       - MYSQL_USER=flaskuser
       - MYSQL_PASSWORD=flaskpass
       - MYSQL_DB=notebookdb
+      - CORS_ORIGINS=http://localhost:3000
     depends_on:
       - db
 
@@ -22,6 +23,8 @@ services:
     container_name: notebook-ui
     ports:
       - "3000:3000"
+    volumes:
+      - ./frontend/public/config.js:/app/dist/config.js
     depends_on:
       - backend
 
