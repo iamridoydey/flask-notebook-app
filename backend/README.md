@@ -42,5 +42,4 @@ docker build -t notebook-api .
 Run the docker image
 ```bash
 docker run -it --name <container-name> -p <host-port>:5000 -e CORS_ORIGINS=<frontend-url:port / url> notebook-api
-
 ```
