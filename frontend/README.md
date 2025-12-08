@@ -20,7 +20,23 @@ It is built with **React (TypeScript)**, powered by **Vite** for fast developmen
 
 ## ⚙️ Setup Instructions
 
-### 1. Install dependencies
+### 1. Local Setup
 ```bash
 cd frontend
 npm install
+```
+
+## 2. Docker Setup
+Build docker image
+```bash
+docker build -t notebook-api .
+```
+### Run the docker image
+- Change your working director to /flask-notebook-app/frontend/public/
+- Change the **VITE_API_URL** as per your backend-api
+- Then run the container with following commands
+```bash
+docker run -it --name <container-name> -p 3000:3000 \
+  -v $(pwd)/config.js:/app/dist/config.js \
+  notebook-ui
+```

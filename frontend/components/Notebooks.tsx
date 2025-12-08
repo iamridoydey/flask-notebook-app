@@ -9,7 +9,7 @@ interface Note {
 }
 
 const Notebooks = () => {
-  const API_URL = import.meta.env.VITE_BACKEND_URI;
+  const API_URL = window._env_.VITE_API_URL;
   console.log(API_URL);
 
   const [notes, setNotes] = useState<Note[]>([]);
@@ -21,7 +21,8 @@ const Notebooks = () => {
       .then((res) => res.json())
       .then((data) =>
         setNotes(
-          data.map((n: any) => ({ ...n, completed: n.completed ?? false }))
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          data.map((n:any) => ({ ...n, completed: n.completed ?? false }))
         )
       );
   }, [API_URL]);
