@@ -1,0 +1,9 @@
+{{- if .Values.initdbScripts.enabled }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "notebook-db.fullname" . }}-initdb
+data:
+  init.sql: |
+{{ .Files.Get .Values.initdbScripts.file | indent 4 }}
+{{- end }}
