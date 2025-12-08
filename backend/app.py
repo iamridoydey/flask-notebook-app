@@ -2,11 +2,12 @@ from flask import Flask, request, jsonify
 from sqlalchemy import create_engine, text
 from config import Config
 from flask_cors import CORS
+import os
 import pymysql
 
 app = Flask(__name__)
-CORS(app, origins=["http://localhost:3000"])
-
+allowed_origins = os.getenv("CORS_ORIGINS", "").split(",")
+CORS(app, origins=allowed_origins)
 
 DATABASE_URL = f"mysql+pymysql://{Config.MYSQL_USER}:{Config.MYSQL_PASSWORD}@{Config.MYSQL_HOST}:{Config.MYSQL_PORT}/{Config.MYSQL_DB}"
 engine = create_engine(DATABASE_URL, future=True)
